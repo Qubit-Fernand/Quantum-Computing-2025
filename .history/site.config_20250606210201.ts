@@ -6,8 +6,7 @@ export default siteConfig({
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: '20ab59e6cf31806480aeff4f5246fca4',
-                      
+  rootNotionSpaceId: 'e57fa69576c34239932f087196971d29',
 
   // basic site info (required)
   name: 'Introduction to Quantum Computing',
