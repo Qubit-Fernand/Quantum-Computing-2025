@@ -5,7 +5,6 @@ import { mergeRecordMaps } from 'notion-utils'
 
 import { notion } from './notion-api'
 import { getPreviewImageMap } from './preview-images'
-import { rewriteNotionFileUrls } from './rewrite-notion-file-urls'
 import {
   isPreviewImageSupportEnabled,
   navigationStyle,
@@ -60,10 +59,6 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     const previewImageMap = await getPreviewImageMap(recordMap)
     ;(recordMap as any).preview_images = previewImageMap
   }
-
-  // Rewrite expiring Notion file URLs to our local API proxy so that links
-  // embedded in the page remain valid indefinitely under the site's own domain.
-  recordMap = rewriteNotionFileUrls(recordMap, pageId)
 
   return recordMap
 }
