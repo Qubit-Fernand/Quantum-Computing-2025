@@ -37,3 +37,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# local history (VS Code Local History extension)
+.history
