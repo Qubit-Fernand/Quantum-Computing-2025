@@ -5,6 +5,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   staticPageGenerationTimeout: 300,
+  async rewrites() {
+    return [
+      {
+        source: '/assets-pdf/:pageId/:blockId',
+        destination: '/api/assets-pdf?pageId=:pageId&blockId=:blockId'
+      }
+    ]
+  },
   images: {
     domains: [
       'www.notion.so',

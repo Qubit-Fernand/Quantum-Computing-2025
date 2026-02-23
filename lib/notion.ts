@@ -5,6 +5,7 @@ import { mergeRecordMaps } from 'notion-utils'
 
 import { notion } from './notion-api'
 import { getPreviewImageMap } from './preview-images'
+import { rewriteNotionPdfUrls } from './rewrite-notion-pdf-urls'
 import {
   isPreviewImageSupportEnabled,
   navigationStyle,
@@ -59,6 +60,8 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     const previewImageMap = await getPreviewImageMap(recordMap)
     ;(recordMap as any).preview_images = previewImageMap
   }
+
+  recordMap = rewriteNotionPdfUrls(recordMap, pageId)
 
   return recordMap
 }
